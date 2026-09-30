@@ -65,13 +65,18 @@ header {
 
 .logo {
 
-    font-size: 30px;
+    font-family: "Georgia", serif;
 
-    font-weight: 800;
+    font-size:36px;
 
-    letter-spacing: 3px;
+    font-weight:700;
 
-    color: #c65b83;
+    letter-spacing:4px;
+
+    color:#d45f8d;
+
+    text-shadow: 
+    0 3px 8px rgba(212,95,141,0.25);
 
 }
 
@@ -129,11 +134,11 @@ nav a:hover {
 
     background:
 
-    radial-gradient(circle at top left,#ffdce9,transparent 35%),
+radial-gradient(circle at 10% 20%, rgba(255,210,230,.8), transparent 30%),
 
-    radial-gradient(circle at bottom right,#ffeaf2,transparent 35%),
+radial-gradient(circle at 90% 80%, rgba(255,235,245,.9), transparent 35%),
 
-    linear-gradient(135deg,#fff,#fff3f7);
+linear-gradient(135deg,#fff,#fff6fa);
 
 
 }
@@ -143,7 +148,21 @@ nav a:hover {
 .hero-texto {
 
     max-width: 850px;
+.hero-texto::before {
 
+    content:"🎀";
+
+    position:absolute;
+
+    left:-80px;
+
+    top:-50px;
+
+    font-size:70px;
+
+    opacity:.15;
+
+}
 }
 
 
