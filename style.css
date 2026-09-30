@@ -254,3 +254,639 @@ nav a:hover {
     border:2px solid #c65b83;
 
 }
+/* ==========================
+   SEÇÕES GERAIS
+========================== */
+
+
+section {
+
+    padding:90px 8%;
+
+}
+
+
+.titulo {
+
+    text-align:center;
+
+    margin-bottom:50px;
+
+}
+
+
+.titulo p {
+
+    color:#c65b83;
+
+    font-size:13px;
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+
+    font-weight:bold;
+
+}
+
+
+
+.titulo h2 {
+
+    color:#493840;
+
+    font-size:42px;
+
+    margin-top:10px;
+
+}
+
+
+
+/* ==========================
+   CATEGORIAS
+========================== */
+
+
+.categorias-grid {
+
+    max-width:1100px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:30px;
+
+}
+
+
+
+.categoria-card {
+
+
+    padding:40px 25px;
+
+    text-align:center;
+
+    background:white;
+
+    border-radius:25px;
+
+    border:1px solid #f3dce5;
+
+    box-shadow:0 15px 35px rgba(190,100,130,.10);
+
+    transition:.3s;
+
+}
+
+
+
+.categoria-card:hover {
+
+    transform:translateY(-10px);
+
+}
+
+
+
+.icone {
+
+    font-size:50px;
+
+    margin-bottom:20px;
+
+}
+
+
+
+.categoria-card h3 {
+
+    color:#c65b83;
+
+    font-size:25px;
+
+    margin-bottom:12px;
+
+}
+
+
+
+.categoria-card p {
+
+    color:#75646b;
+
+}
+
+
+
+/* ==========================
+   PRODUTOS
+========================== */
+
+
+#colecao {
+
+    background:#fff8fb;
+
+}
+
+
+
+.produtos-grid {
+
+    max-width:1200px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:30px;
+
+}
+
+
+
+.produto {
+
+    background:white;
+
+    padding-bottom:30px;
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    box-shadow:0 15px 40px rgba(190,100,130,.12);
+
+    transition:.3s;
+
+}
+
+
+
+.produto:hover {
+
+    transform:translateY(-8px);
+
+}
+
+
+
+.imagem-produto {
+
+    height:350px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+
+    background:
+
+    linear-gradient(135deg,#fff0f5,#ffe1ec);
+
+
+    color:#c65b83;
+
+    font-weight:bold;
+
+}
+
+
+
+.produto h3 {
+
+    padding:20px 25px 5px;
+
+    color:#493840;
+
+    font-size:24px;
+
+}
+
+
+
+.produto p {
+
+    padding:0 25px;
+
+    color:#75646b;
+
+}
+
+
+
+.produto a {
+
+    display:inline-block;
+
+    margin:25px;
+
+    padding:12px 25px;
+
+    background:#c65b83;
+
+    color:white;
+
+    border-radius:30px;
+
+    font-weight:bold;
+
+}
+
+
+
+.produto a:hover {
+
+    background:#ad456c;
+
+}
+
+
+
+/* ==========================
+   SOBRE
+========================== */
+
+
+.sobre {
+
+    background:
+
+    linear-gradient(135deg,#fff1f6,#fff);
+
+    text-align:center;
+
+}
+
+
+
+.sobre div {
+
+    max-width:850px;
+
+    margin:auto;
+
+}
+
+
+
+.sobre h2 {
+
+    color:#493840;
+
+    font-size:42px;
+
+    margin-bottom:25px;
+
+}
+
+
+
+.sobre p:not(.mini-titulo) {
+
+    color:#75646b;
+
+    font-size:18px;
+
+    margin-bottom:15px;
+
+}
+
+
+
+/* ==========================
+   DIFERENCIAIS
+========================== */
+
+
+.diferenciais-grid {
+
+
+    max-width:1000px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:25px;
+
+
+}
+
+
+
+.diferenciais-grid div {
+
+    background:white;
+
+    padding:35px 20px;
+
+    text-align:center;
+
+    border-radius:20px;
+
+    font-weight:bold;
+
+    color:#59454d;
+
+    box-shadow:0 10px 30px rgba(190,100,130,.10);
+
+    font-size:18px;
+
+}
+/* ==========================
+   CONTATO
+========================== */
+
+
+#contato {
+
+    background:#fff8fb;
+
+}
+
+
+
+.contato-box {
+
+    max-width:900px;
+
+    margin:auto;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:25px;
+
+    flex-wrap:wrap;
+
+}
+
+
+
+.contato-box a,
+.contato-box p {
+
+
+    background:white;
+
+    padding:20px 35px;
+
+    border-radius:50px;
+
+    color:#c65b83;
+
+    font-weight:bold;
+
+    box-shadow:0 10px 25px rgba(190,100,130,.12);
+
+}
+
+
+
+.contato-box a:hover {
+
+    transform:translateY(-5px);
+
+}
+
+
+
+.contato-box p {
+
+    margin:0;
+
+}
+
+
+
+/* ==========================
+   RODAPÉ
+========================== */
+
+
+footer {
+
+    background:#493840;
+
+    color:white;
+
+    text-align:center;
+
+    padding:45px 20px;
+
+}
+
+
+
+footer h3 {
+
+    font-size:28px;
+
+    letter-spacing:3px;
+
+    margin-bottom:10px;
+
+}
+
+
+
+footer p {
+
+    opacity:.8;
+
+}
+
+
+
+
+
+/* ==========================
+   WHATSAPP FLUTUANTE
+========================== */
+
+
+.whatsapp-flutuante {
+
+
+    position:fixed;
+
+    right:25px;
+
+    bottom:25px;
+
+
+    background:#25D366;
+
+    color:white;
+
+
+    padding:15px 25px;
+
+
+    border-radius:50px;
+
+
+    font-weight:bold;
+
+
+    z-index:999;
+
+
+    box-shadow:0 10px 30px rgba(0,0,0,.2);
+
+
+    transition:.3s;
+
+
+}
+
+
+
+.whatsapp-flutuante:hover {
+
+    transform:scale(1.08);
+
+}
+
+
+
+/* ==========================
+   CELULAR
+========================== */
+
+
+@media(max-width:800px){
+
+
+
+header {
+
+
+    flex-direction:column;
+
+    gap:15px;
+
+    padding:20px;
+
+}
+
+
+
+nav {
+
+
+    gap:15px;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+}
+
+
+
+.hero h1 {
+
+
+    font-size:42px;
+
+}
+
+
+
+.hero p {
+
+
+    font-size:17px;
+
+}
+
+
+
+section {
+
+
+    padding:65px 20px;
+
+}
+
+
+
+.titulo h2 {
+
+
+    font-size:32px;
+
+}
+
+
+
+.categorias-grid,
+.produtos-grid,
+.diferenciais-grid {
+
+
+    grid-template-columns:1fr;
+
+
+}
+
+
+
+.imagem-produto {
+
+
+    height:300px;
+
+}
+
+
+
+.contato-box {
+
+
+    flex-direction:column;
+
+}
+
+
+
+.contato-box a,
+.contato-box p {
+
+
+    width:100%;
+
+    text-align:center;
+
+}
+
+
+
+.whatsapp-flutuante {
+
+
+    right:15px;
+
+    bottom:15px;
+
+}
+
+
+
+}
