@@ -1,6 +1,9 @@
 /* =========================
    BASE
 ========================= */
+body {
+    background: red !important;
+}
 
 * {
     margin: 0;
