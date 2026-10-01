@@ -480,6 +480,22 @@ section {
 }
 
 
+.imagem-produto img {
+
+    max-width:90%;
+
+    max-height:90%;
+
+    width:auto;
+
+    height:auto;
+
+    object-fit:contain;
+
+    display:block;
+
+}
+
 
 .produto h3 {
 
