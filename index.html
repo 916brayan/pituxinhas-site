@@ -13,6 +13,9 @@
 
 <link rel="stylesheet" href="style.css">
 
+<!-- Biblioteca para gerar QR Code -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
 </head>
 
 
@@ -193,85 +196,129 @@ Nossa coleção
 
 </div>
 
+
+
 <div class="produtos-grid">
+
+
+
+<!-- PRODUTO 1 -->
 
 <div class="produto">
 
 <div class="imagem-produto">
-<img src="imagens/vestido%2001.jfif" alt="Conjuntinho Bobbie Goods">
+
+<img
+src="imagens/vestido%2001.jfif"
+alt="Conjuntinho Bobbie Goods">
+
 </div>
+
 
 <h3>
 Conjuntinho Bobbie Goods
 </h3>
 
+
 <p>
 Um conjuntinho infantil lindo e cheio de charme.
 </p>
 
-<a href="https://wa.me/5511969220101?text=Olá,%20gostaria%20de%20ver%20o%20Conjuntinho%20Bobbie%20Goods%20da%20Pituxinhas"
-target="_blank">
 
-Consultar
+<button
+class="botao-pedido"
+onclick="adicionarAoCarrinho('Conjuntinho Bobbie Goods', 59.90)">
 
-</a>
+Adicionar ao pedido
+
+</button>
+
 
 </div>
 
+
+
+<!-- PRODUTO 2 -->
 
 <div class="produto">
 
 <div class="imagem-produto">
-<img src="imagens/vestido%2002.jfif" alt="Conjuntinho de Unicórnio">
+
+<img
+src="imagens/vestido%2002.jfif"
+alt="Conjuntinho de Unicórnio">
+
 </div>
+
 
 <h3>
 Conjuntinho de Unicórnio
 </h3>
 
+
 <p>
 Um conjuntinho encantador para deixar o look ainda mais fofo.
 </p>
 
-<a href="https://wa.me/5511969220101?text=Olá,%20gostaria%20de%20ver%20o%20Conjuntinho%20de%20Unicórnio%20da%20Pituxinhas"
-target="_blank">
 
-Consultar
+<button
+class="botao-pedido"
+onclick="adicionarAoCarrinho('Conjuntinho de Unicórnio', 59.90)">
 
-</a>
+Adicionar ao pedido
+
+</button>
+
 
 </div>
 
+
+
+<!-- PRODUTO 3 -->
 
 <div class="produto">
 
 <div class="imagem-produto">
-<img src="imagens/vestido%2003.jfif" alt="Conjuntinho Roxo com Flores">
+
+<img
+src="imagens/vestido%2003.jfif"
+alt="Conjuntinho Roxo com Flores">
+
 </div>
+
 
 <h3>
 Conjuntinho Roxo com Flores
 </h3>
 
+
 <p>
 Um modelo delicado, alegre e cheio de encanto.
 </p>
 
-<a href="https://wa.me/5511969220101?text=Olá,%20gostaria%20de%20ver%20o%20Conjuntinho%20Roxo%20com%20Flores%20da%20Pituxinhas"
-target="_blank">
 
-Consultar
+<button
+class="botao-pedido"
+onclick="adicionarAoCarrinho('Conjuntinho Roxo com Flores', 59.90)">
 
-</a>
+Adicionar ao pedido
+
+</button>
+
 
 </div>
+
+
+
+<!-- ÁREA ORIGINAL DE TIARAS -->
 
 <p>
 Acessórios para deixar cada look ainda mais lindo.
 </p>
 
 
-<a href="https://wa.me/5511969220101?text=Olá,%20gostaria%20de%20ver%20as%20tiaras%20da%20Pituxinhas"
+<a
+href="https://wa.me/5511969220101?text=Olá,%20gostaria%20de%20ver%20as%20tiaras%20da%20Pituxinhas"
 target="_blank">
 
 Consultar
@@ -280,10 +327,6 @@ Consultar
 
 
 </div>
-
-
-</div>
-
 
 
 </section>
@@ -323,8 +366,6 @@ Trabalhamos com laços, vestidos e tiaras para diferentes estilos e ocasiões.
 
 
 </section>
-
-
 
 
 
@@ -401,7 +442,9 @@ Entre em contato
 <div class="contato-box">
 
 
-<a href="https://wa.me/5511969220101" target="_blank">
+<a
+href="https://wa.me/5511969220101"
+target="_blank">
 
 💬 WhatsApp
 
@@ -409,7 +452,9 @@ Entre em contato
 
 
 
-<a href="https://www.instagram.com/pituxinhas.lacoseacessorios/" target="_blank">
+<a
+href="https://www.instagram.com/pituxinhas.lacoseacessorios/"
+target="_blank">
 
 📸 Instagram
 
@@ -418,9 +463,7 @@ Entre em contato
 
 
 <p>
-
 📍 Praça de Urbis
-
 </p>
 
 
@@ -464,13 +507,1658 @@ Laços • Vestidos • Tiaras
 
 
 
-<a class="whatsapp-flutuante"
+<!-- BOTÃO FLUTUANTE DO CARRINHO -->
+
+<button
+id="botaoCarrinho"
+class="carrinho-flutuante"
+onclick="abrirCarrinho()">
+
+🛍️ Meu pedido
+<span id="contadorCarrinho">0</span>
+
+</button>
+
+
+
+<!-- BOTÃO ORIGINAL DO WHATSAPP -->
+
+<a
+class="whatsapp-flutuante"
 href="https://wa.me/5511969220101"
 target="_blank">
 
 WhatsApp
 
 </a>
+
+
+
+
+
+<!-- ============================= -->
+<!-- MODAL DO CARRINHO -->
+<!-- ============================= -->
+
+<div
+id="modalCarrinho"
+class="modal-overlay"
+onclick="fecharModalFora(event, 'modalCarrinho')">
+
+
+<div class="modal-conteudo">
+
+
+<button
+class="fechar-modal"
+onclick="fecharCarrinho()">
+
+×
+
+</button>
+
+
+<h2>
+🛍️ Meu pedido
+</h2>
+
+
+<div id="listaCarrinho">
+
+<p class="carrinho-vazio">
+Seu pedido está vazio.
+</p>
+
+</div>
+
+
+<div class="total-carrinho">
+
+<span>
+Total
+</span>
+
+<strong id="totalCarrinho">
+R$ 0,00
+</strong>
+
+</div>
+
+
+
+<div class="dados-cliente">
+
+
+<label for="nomeCliente">
+Nome
+</label>
+
+<input
+type="text"
+id="nomeCliente"
+placeholder="Digite seu nome">
+
+
+<label for="whatsappCliente">
+WhatsApp
+</label>
+
+<input
+type="tel"
+id="whatsappCliente"
+placeholder="Digite seu WhatsApp">
+
+
+</div>
+
+
+
+<button
+class="botao-pagamento"
+onclick="continuarPagamento()">
+
+Continuar para pagamento
+
+</button>
+
+
+</div>
+
+</div>
+
+
+
+
+
+<!-- ============================= -->
+<!-- MODAL DO PIX -->
+<!-- ============================= -->
+
+<div
+id="modalPix"
+class="modal-overlay"
+onclick="fecharModalFora(event, 'modalPix')">
+
+
+<div class="modal-conteudo modal-pix">
+
+
+<button
+class="fechar-modal"
+onclick="fecharPix()">
+
+×
+
+</button>
+
+
+<h2>
+💳 Pagamento via PIX
+</h2>
+
+
+<p class="pix-instrucao">
+
+Faça o pagamento utilizando o QR Code ou copie o código PIX abaixo.
+
+</p>
+
+
+
+<div class="valor-pix">
+
+Total do pedido:
+
+<strong id="valorPix">
+R$ 0,00
+</strong>
+
+</div>
+
+
+
+<div
+id="qrcode"
+class="qrcode">
+
+</div>
+
+
+
+<label>
+PIX Copia e Cola
+</label>
+
+
+<div class="pix-copia-box">
+
+<input
+type="text"
+id="pixCopiaCola"
+readonly>
+
+<button
+onclick="copiarPix()">
+
+Copiar PIX
+
+</button>
+
+</div>
+
+
+<p
+id="mensagemCopiado"
+class="mensagem-copiado">
+
+</p>
+
+
+
+<div class="dados-recebedor">
+
+<p>
+<strong>Recebedor:</strong> PITUXINHAS
+</p>
+
+<p>
+<strong>Cidade:</strong> DIAS DE AVILA
+</p>
+
+</div>
+
+
+
+<p class="aviso-pagamento">
+
+Após realizar o pagamento, envie seu pedido pelo WhatsApp para que a Pituxinhas possa conferir e confirmar o pagamento.
+
+</p>
+
+
+
+<button
+class="botao-whatsapp-pedido"
+onclick="enviarPedidoWhatsApp()">
+
+📱 Enviar pedido pelo WhatsApp
+
+</button>
+
+
+</div>
+
+</div>
+
+
+
+
+
+
+<!-- ============================= -->
+<!-- ESTILOS DO SISTEMA DE PEDIDOS -->
+<!-- ============================= -->
+
+<style>
+
+
+.botao-pedido {
+
+display:inline-block;
+
+margin:25px;
+
+padding:12px 25px;
+
+border:none;
+
+background:#c65b83;
+
+color:white;
+
+border-radius:30px;
+
+font-weight:bold;
+
+font-size:16px;
+
+cursor:pointer;
+
+transition:0.3s;
+
+}
+
+
+.botao-pedido:hover {
+
+background:#ad456c;
+
+transform:translateY(-2px);
+
+}
+
+
+
+.carrinho-flutuante {
+
+position:fixed;
+
+right:25px;
+
+bottom:25px;
+
+z-index:9998;
+
+border:none;
+
+background:#c65b83;
+
+color:white;
+
+padding:14px 22px;
+
+border-radius:35px;
+
+font-size:16px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+box-shadow:0 5px 20px rgba(0,0,0,0.18);
+
+transition:0.3s;
+
+}
+
+
+.carrinho-flutuante:hover {
+
+transform:translateY(-3px);
+
+background:#ad456c;
+
+}
+
+
+#contadorCarrinho {
+
+display:inline-flex;
+
+align-items:center;
+
+justify-content:center;
+
+min-width:23px;
+
+height:23px;
+
+margin-left:6px;
+
+padding:0 5px;
+
+background:white;
+
+color:#c65b83;
+
+border-radius:50px;
+
+font-size:13px;
+
+}
+
+
+
+.modal-overlay {
+
+display:none;
+
+position:fixed;
+
+inset:0;
+
+z-index:10000;
+
+background:rgba(50,30,40,0.55);
+
+padding:20px;
+
+overflow-y:auto;
+
+align-items:center;
+
+justify-content:center;
+
+}
+
+
+.modal-overlay.aberto {
+
+display:flex;
+
+}
+
+
+
+.modal-conteudo {
+
+position:relative;
+
+width:100%;
+
+max-width:520px;
+
+max-height:90vh;
+
+overflow-y:auto;
+
+background:#fffafa;
+
+border-radius:25px;
+
+padding:30px;
+
+box-shadow:0 15px 50px rgba(0,0,0,0.25);
+
+}
+
+
+.modal-conteudo h2 {
+
+margin-top:0;
+
+margin-bottom:25px;
+
+color:#493840;
+
+text-align:center;
+
+}
+
+
+.fechar-modal {
+
+position:absolute;
+
+right:18px;
+
+top:15px;
+
+width:35px;
+
+height:35px;
+
+border:none;
+
+border-radius:50%;
+
+background:#f7dce6;
+
+color:#9d4969;
+
+font-size:25px;
+
+line-height:30px;
+
+cursor:pointer;
+
+}
+
+
+
+.item-carrinho {
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+gap:12px;
+
+padding:15px 0;
+
+border-bottom:1px solid #f0dfe5;
+
+}
+
+
+.item-carrinho-info {
+
+flex:1;
+
+}
+
+
+.item-carrinho-info strong {
+
+display:block;
+
+color:#493840;
+
+margin-bottom:5px;
+
+}
+
+
+.item-carrinho-info span {
+
+font-size:14px;
+
+color:#75646b;
+
+}
+
+
+.controles-quantidade {
+
+display:flex;
+
+align-items:center;
+
+gap:8px;
+
+}
+
+
+.controles-quantidade button {
+
+width:30px;
+
+height:30px;
+
+border:none;
+
+border-radius:50%;
+
+background:#f5d6e1;
+
+color:#a84d6d;
+
+font-size:18px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+}
+
+
+.controles-quantidade span {
+
+min-width:22px;
+
+text-align:center;
+
+font-weight:bold;
+
+color:#493840;
+
+}
+
+
+.botao-remover {
+
+border:none;
+
+background:transparent;
+
+color:#c65b83;
+
+font-size:18px;
+
+cursor:pointer;
+
+}
+
+
+.subtotal-item {
+
+font-weight:bold;
+
+color:#c65b83;
+
+white-space:nowrap;
+
+}
+
+
+.carrinho-vazio {
+
+text-align:center;
+
+padding:30px 10px;
+
+color:#75646b;
+
+}
+
+
+
+.total-carrinho {
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:20px 0;
+
+margin-top:5px;
+
+border-top:2px solid #f2dce4;
+
+font-size:18px;
+
+color:#493840;
+
+}
+
+
+.total-carrinho strong {
+
+font-size:22px;
+
+color:#c65b83;
+
+}
+
+
+
+.dados-cliente {
+
+margin-top:10px;
+
+}
+
+
+.dados-cliente label {
+
+display:block;
+
+margin:12px 0 6px;
+
+font-weight:bold;
+
+color:#493840;
+
+}
+
+
+.dados-cliente input {
+
+width:100%;
+
+box-sizing:border-box;
+
+padding:13px 15px;
+
+border:1px solid #e7cbd5;
+
+border-radius:12px;
+
+outline:none;
+
+font-size:15px;
+
+background:white;
+
+}
+
+
+.dados-cliente input:focus {
+
+border-color:#c65b83;
+
+box-shadow:0 0 0 3px rgba(198,91,131,0.10);
+
+}
+
+
+
+.botao-pagamento,
+.botao-whatsapp-pedido {
+
+width:100%;
+
+border:none;
+
+padding:15px;
+
+margin-top:20px;
+
+border-radius:30px;
+
+background:#c65b83;
+
+color:white;
+
+font-size:16px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+transition:0.3s;
+
+}
+
+
+.botao-pagamento:hover,
+.botao-whatsapp-pedido:hover {
+
+background:#ad456c;
+
+transform:translateY(-2px);
+
+}
+
+
+
+.modal-pix {
+
+text-align:center;
+
+}
+
+
+.pix-instrucao {
+
+color:#75646b;
+
+line-height:1.5;
+
+}
+
+
+.valor-pix {
+
+margin:20px 0;
+
+padding:15px;
+
+border-radius:15px;
+
+background:#fcebf1;
+
+color:#493840;
+
+}
+
+
+.valor-pix strong {
+
+display:block;
+
+font-size:28px;
+
+color:#c65b83;
+
+margin-top:5px;
+
+}
+
+
+
+.qrcode {
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+margin:20px auto;
+
+padding:15px;
+
+background:white;
+
+width:max-content;
+
+border-radius:15px;
+
+box-shadow:0 3px 15px rgba(0,0,0,0.08);
+
+}
+
+
+.pix-copia-box {
+
+display:flex;
+
+gap:8px;
+
+margin-top:8px;
+
+}
+
+
+.pix-copia-box input {
+
+flex:1;
+
+min-width:0;
+
+padding:12px;
+
+border:1px solid #e7cbd5;
+
+border-radius:12px;
+
+font-size:12px;
+
+background:#fff;
+
+}
+
+
+.pix-copia-box button {
+
+border:none;
+
+padding:0 15px;
+
+border-radius:12px;
+
+background:#c65b83;
+
+color:white;
+
+font-weight:bold;
+
+cursor:pointer;
+
+}
+
+
+.mensagem-copiado {
+
+height:20px;
+
+margin:8px 0;
+
+color:#4d9460;
+
+font-weight:bold;
+
+}
+
+
+.dados-recebedor {
+
+margin-top:15px;
+
+padding:12px;
+
+border-radius:15px;
+
+background:#fff1f5;
+
+color:#493840;
+
+text-align:left;
+
+}
+
+
+.dados-recebedor p {
+
+margin:5px 0;
+
+}
+
+
+.aviso-pagamento {
+
+font-size:14px;
+
+line-height:1.5;
+
+color:#75646b;
+
+margin-top:18px;
+
+}
+
+
+
+@media (max-width:600px) {
+
+
+.carrinho-flutuante {
+
+right:15px;
+
+bottom:15px;
+
+padding:12px 16px;
+
+font-size:14px;
+
+}
+
+
+.modal-overlay {
+
+padding:12px;
+
+}
+
+
+.modal-conteudo {
+
+padding:24px 18px;
+
+border-radius:20px;
+
+}
+
+
+.item-carrinho {
+
+align-items:flex-start;
+
+flex-wrap:wrap;
+
+}
+
+
+.item-carrinho-info {
+
+min-width:calc(100% - 50px);
+
+}
+
+
+.subtotal-item {
+
+margin-left:auto;
+
+}
+
+
+.pix-copia-box {
+
+flex-direction:column;
+
+}
+
+
+.pix-copia-box button {
+
+padding:12px;
+
+}
+
+
+}
+
+
+</style>
+
+
+
+
+
+<!-- ============================= -->
+<!-- JAVASCRIPT DO SISTEMA -->
+<!-- ============================= -->
+
+<script>
+
+
+const CHAVE_PIX = "71982401050";
+
+const NOME_RECEBEDOR = "PITUXINHAS";
+
+const CIDADE_RECEBEDOR = "DIAS DE AVILA";
+
+const WHATSAPP_LOJA = "5511969220101";
+
+
+let carrinho = JSON.parse(localStorage.getItem("pituxinhasCarrinho")) || [];
+
+let dadosCliente = JSON.parse(localStorage.getItem("pituxinhasCliente")) || {
+nome:"",
+whatsapp:""
+};
+
+
+
+function formatarMoeda(valor) {
+
+return valor.toLocaleString("pt-BR", {
+style:"currency",
+currency:"BRL"
+});
+
+}
+
+
+
+function salvarCarrinho() {
+
+localStorage.setItem(
+"pituxinhasCarrinho",
+JSON.stringify(carrinho)
+);
+
+}
+
+
+
+function adicionarAoCarrinho(nome, preco) {
+
+const produtoExistente = carrinho.find(
+produto => produto.nome === nome
+);
+
+
+if (produtoExistente) {
+
+produtoExistente.quantidade++;
+
+} else {
+
+carrinho.push({
+
+nome:nome,
+
+preco:preco,
+
+quantidade:1
+
+});
+
+}
+
+
+salvarCarrinho();
+
+atualizarCarrinho();
+
+abrirCarrinho();
+
+}
+
+
+
+function diminuirQuantidade(index) {
+
+if (carrinho[index].quantidade > 1) {
+
+carrinho[index].quantidade--;
+
+} else {
+
+carrinho.splice(index,1);
+
+}
+
+
+salvarCarrinho();
+
+atualizarCarrinho();
+
+}
+
+
+
+function aumentarQuantidade(index) {
+
+carrinho[index].quantidade++;
+
+salvarCarrinho();
+
+atualizarCarrinho();
+
+}
+
+
+
+function removerProduto(index) {
+
+carrinho.splice(index,1);
+
+salvarCarrinho();
+
+atualizarCarrinho();
+
+}
+
+
+
+function calcularTotal() {
+
+return carrinho.reduce(
+
+(total,produto) => total + (produto.preco * produto.quantidade),
+
+0
+
+);
+
+}
+
+
+
+function quantidadeTotal() {
+
+return carrinho.reduce(
+
+(total,produto) => total + produto.quantidade,
+
+0
+
+);
+
+}
+
+
+
+function atualizarCarrinho() {
+
+const lista = document.getElementById("listaCarrinho");
+
+const total = calcularTotal();
+
+const quantidade = quantidadeTotal();
+
+const contador = document.getElementById("contadorCarrinho");
+
+const totalElemento = document.getElementById("totalCarrinho");
+
+
+contador.textContent = quantidade;
+
+totalElemento.textContent = formatarMoeda(total);
+
+
+if (carrinho.length === 0) {
+
+lista.innerHTML = `
+<p class="carrinho-vazio">
+Seu pedido está vazio.
+</p>
+`;
+
+return;
+
+}
+
+
+lista.innerHTML = "";
+
+
+carrinho.forEach((produto,index) => {
+
+const item = document.createElement("div");
+
+item.className = "item-carrinho";
+
+
+item.innerHTML = `
+
+<div class="item-carrinho-info">
+
+<strong>
+${produto.nome}
+</strong>
+
+<span>
+${formatarMoeda(produto.preco)} cada
+</span>
+
+<div class="controles-quantidade">
+
+<button onclick="diminuirQuantidade(${index})">
+−
+</button>
+
+<span>
+${produto.quantidade}
+</span>
+
+<button onclick="aumentarQuantidade(${index})">
++
+</button>
+
+<button
+class="botao-remover"
+onclick="removerProduto(${index})"
+title="Remover produto">
+
+🗑️
+
+</button>
+
+</div>
+
+</div>
+
+
+<div class="subtotal-item">
+
+${formatarMoeda(produto.preco * produto.quantidade)}
+
+</div>
+
+`;
+
+
+lista.appendChild(item);
+
+});
+
+
+}
+
+
+
+function abrirCarrinho() {
+
+atualizarCarrinho();
+
+document
+.getElementById("modalCarrinho")
+.classList.add("aberto");
+
+document.body.style.overflow = "hidden";
+
+}
+
+
+
+function fecharCarrinho() {
+
+document
+.getElementById("modalCarrinho")
+.classList.remove("aberto");
+
+document.body.style.overflow = "";
+
+}
+
+
+
+function fecharPix() {
+
+document
+.getElementById("modalPix")
+.classList.remove("aberto");
+
+document.body.style.overflow = "";
+
+}
+
+
+
+function fecharModalFora(event,id) {
+
+if (event.target.id === id) {
+
+if (id === "modalCarrinho") {
+
+fecharCarrinho();
+
+} else {
+
+fecharPix();
+
+}
+
+}
+
+}
+
+
+
+function continuarPagamento() {
+
+if (carrinho.length === 0) {
+
+alert("Adicione pelo menos um produto ao pedido.");
+
+return;
+
+}
+
+
+const nome = document
+.getElementById("nomeCliente")
+.value
+.trim();
+
+
+const whatsapp = document
+.getElementById("whatsappCliente")
+.value
+.trim();
+
+
+if (!nome) {
+
+alert("Digite seu nome.");
+
+document
+.getElementById("nomeCliente")
+.focus();
+
+return;
+
+}
+
+
+if (!whatsapp) {
+
+alert("Digite seu WhatsApp.");
+
+document
+.getElementById("whatsappCliente")
+.focus();
+
+return;
+
+}
+
+
+dadosCliente = {
+
+nome:nome,
+
+whatsapp:whatsapp
+
+};
+
+
+localStorage.setItem(
+"pituxinhasCliente",
+JSON.stringify(dadosCliente)
+);
+
+
+const total = calcularTotal();
+
+
+document.getElementById("valorPix").textContent =
+formatarMoeda(total);
+
+
+gerarPix(total);
+
+
+fecharCarrinho();
+
+
+document
+.getElementById("modalPix")
+.classList.add("aberto");
+
+document.body.style.overflow = "hidden";
+
+}
+
+
+
+function gerarPix(valor) {
+
+const valorFormatado = valor.toFixed(2);
+
+
+/*
+PIX BR CODE
+
+Formato:
+00 - Payload Format Indicator
+26 - Merchant Account Information
+52 - Merchant Category Code
+53 - Currency
+54 - Transaction Amount
+58 - Country
+59 - Merchant Name
+60 - Merchant City
+62 - Additional Data
+63 - CRC
+*/
+
+
+const merchantAccountInfo =
+
+"00" +
+"14" +
+"BR.GOV.BCB.PIX" +
+
+"01" +
+String(CHAVE_PIX.length).padStart(2,"0") +
+CHAVE_PIX;
+
+
+const payloadSemCRC =
+
+"000201" +
+
+"26" +
+String(merchantAccountInfo.length).padStart(2,"0") +
+merchantAccountInfo +
+
+"52040000" +
+
+"5303986" +
+
+"54" +
+String(valorFormatado.length).padStart(2,"0") +
+valorFormatado +
+
+"5802BR" +
+
+"59" +
+String(NOME_RECEBEDOR.length).padStart(2,"0") +
+NOME_RECEBEDOR +
+
+"60" +
+String(CIDADE_RECEBEDOR.length).padStart(2,"0") +
+CIDADE_RECEBEDOR +
+
+"62070503***" +
+
+"6304";
+
+
+const crc = calcularCRC16(payloadSemCRC);
+
+const payloadFinal = payloadSemCRC + crc;
+
+
+document.getElementById("pixCopiaCola").value =
+payloadFinal;
+
+
+const qrcode = document.getElementById("qrcode");
+
+qrcode.innerHTML = "";
+
+
+new QRCode(qrcode, {
+
+text:payloadFinal,
+
+width:220,
+
+height:220,
+
+correctLevel:QRCode.CorrectLevel.M
+
+});
+
+}
+
+
+
+function calcularCRC16(payload) {
+
+let crc = 0xFFFF;
+
+
+for (let i = 0; i < payload.length; i++) {
+
+crc ^= payload.charCodeAt(i) << 8;
+
+
+for (let j = 0; j < 8; j++) {
+
+if ((crc & 0x8000) !== 0) {
+
+crc = (crc << 1) ^ 0x1021;
+
+} else {
+
+crc = crc << 1;
+
+}
+
+
+crc &= 0xFFFF;
+
+}
+
+}
+
+
+return crc
+.toString(16)
+.toUpperCase()
+.padStart(4,"0");
+
+}
+
+
+
+async function copiarPix() {
+
+const campo =
+document.getElementById("pixCopiaCola");
+
+
+try {
+
+await navigator.clipboard.writeText(
+campo.value
+);
+
+
+document.getElementById("mensagemCopiado").textContent =
+"PIX copiado!";
+
+
+setTimeout(() => {
+
+document.getElementById("mensagemCopiado").textContent =
+"";
+
+},3000);
+
+
+} catch(error) {
+
+campo.select();
+
+document.execCommand("copy");
+
+document.getElementById("mensagemCopiado").textContent =
+"PIX copiado!";
+
+}
+
+}
+
+
+
+function enviarPedidoWhatsApp() {
+
+if (carrinho.length === 0) {
+
+alert("Seu pedido está vazio.");
+
+return;
+
+}
+
+
+const nome = dadosCliente.nome ||
+document.getElementById("nomeCliente").value.trim();
+
+
+const whatsapp = dadosCliente.whatsapp ||
+document.getElementById("whatsappCliente").value.trim();
+
+
+const total = calcularTotal();
+
+
+let mensagem =
+
+"*PEDIDO PITUXINHAS*%0A%0A" +
+
+"*Nome:* " +
+encodeURIComponent(nome) +
+
+"%0A" +
+
+"*WhatsApp:* " +
+encodeURIComponent(whatsapp) +
+
+"%0A%0A" +
+
+"*PRODUTOS:*%0A";
+
+
+carrinho.forEach(produto => {
+
+const subtotal =
+produto.preco * produto.quantidade;
+
+
+mensagem +=
+
+"%0A" +
+
+encodeURIComponent(produto.nome) +
+
+"%0AQuantidade: " +
+
+produto.quantidade +
+
+"%0APreço unitário: " +
+
+encodeURIComponent(formatarMoeda(produto.preco)) +
+
+"%0ASubtotal: " +
+
+encodeURIComponent(formatarMoeda(subtotal)) +
+
+"%0A";
+
+});
+
+
+mensagem +=
+
+"%0A*TOTAL: " +
+
+encodeURIComponent(formatarMoeda(total)) +
+
+"*%0A%0A" +
+
+"*Pagamento:* PIX%0A%0A" +
+
+"Olá! Realizei o pedido pelo site da Pituxinhas. " +
+
+"Estou enviando os dados do pedido para confirmação do pagamento via PIX.";
+
+
+const url =
+
+"https://wa.me/" +
+WHATSAPP_LOJA +
+"?text=" +
+mensagem;
+
+
+window.open(url,"_blank");
+
+
+}
+
+
+
+document.addEventListener("DOMContentLoaded",function() {
+
+
+atualizarCarrinho();
+
+
+if (dadosCliente.nome) {
+
+document.getElementById("nomeCliente").value =
+dadosCliente.nome;
+
+}
+
+
+if (dadosCliente.whatsapp) {
+
+document.getElementById("whatsappCliente").value =
+dadosCliente.whatsapp;
+
+}
+
+
+});
+
+
+</script>
 
 
 
